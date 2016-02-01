@@ -20,7 +20,7 @@
 using System;
 using System.Collections;
 using System.IO;
-#if (!NETCF)
+#if !(NETCF || DOTNET5_5)
 using System.Runtime.Serialization;
 using System.Security.Principal;
 #endif

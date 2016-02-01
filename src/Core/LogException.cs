@@ -18,7 +18,7 @@
 #endregion
 
 using System;
-#if !NETCF
+#if !(NETCF || DOTNET5_5)
 using System.Runtime.Serialization;
 #endif
 
