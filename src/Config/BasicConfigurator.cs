@@ -96,7 +96,7 @@ namespace log4net.Config
 		/// </remarks>
         static public ICollection Configure()
 		{
-#if DOTNET5_5
+#if DOTNET5_4
             return BasicConfigurator.Configure(LogManager.GetRepository(CallingAssemblyWorkaround.GetCallingAssembly()));
 #else
             return BasicConfigurator.Configure(LogManager.GetRepository(Assembly.GetCallingAssembly()));
@@ -130,7 +130,7 @@ namespace log4net.Config
         {
             ArrayList configurationMessages = new ArrayList();
 
-#if DOTNET5_5
+#if DOTNET5_4
             ILoggerRepository repository = LogManager.GetRepository(CallingAssemblyWorkaround.GetCallingAssembly());
 #else
             ILoggerRepository repository = LogManager.GetRepository(Assembly.GetCallingAssembly());

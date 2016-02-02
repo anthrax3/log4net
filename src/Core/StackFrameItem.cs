@@ -30,7 +30,7 @@ namespace log4net.Core
     /// as that would require that the containing assembly is loaded.
     /// </summary>
     /// 
-#if !DOTNET5_5
+#if !DOTNET5_4
     [Serializable]
 #endif
     public class StackFrameItem

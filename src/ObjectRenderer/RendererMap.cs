@@ -19,7 +19,7 @@
 
 using System;
 using System.IO;
-#if DOTNET5_5
+#if DOTNET5_4
 using System.Reflection;
 #endif
 
@@ -220,7 +220,7 @@ namespace log4net.ObjectRenderer
 
 			if (result == null)
 			{
-#if DOTNET5_5
+#if DOTNET5_4
 				for (Type cur = type; cur != null; cur = cur.GetTypeInfo().BaseType)
 #else
 				for(Type cur = type; cur != null; cur = cur.BaseType)

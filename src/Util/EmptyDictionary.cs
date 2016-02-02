@@ -33,7 +33,7 @@ namespace log4net.Util
 	/// </remarks>
 	/// <author>Nicko Cadell</author>
 	/// <author>Gert Driesen</author>
-#if !(NETCF || DOTNET5_5)
+#if !(NETCF || DOTNET5_4)
 	[Serializable]
 #endif
 	public sealed class EmptyDictionary : IDictionary

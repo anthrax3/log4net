@@ -403,7 +403,7 @@ namespace log4net.Appender
 			try 
 			{
 				Byte [] buffer = m_encoding.GetBytes(RenderLoggingEvent(loggingEvent).ToCharArray());
-#if DOTNET5_5
+#if DOTNET5_4
 				Client.SendAsync(buffer, buffer.Length, RemoteEndPoint).Wait();
 #else
 				this.Client.Send(buffer, buffer.Length, this.RemoteEndPoint);
@@ -451,7 +451,7 @@ namespace log4net.Appender
 
 			if (this.Client != null) 
 			{
-#if DOTNET5_5
+#if DOTNET5_4
 				this.Client.Dispose();
 #else
 				this.Client.Close();
@@ -544,7 +544,7 @@ namespace log4net.Appender
 		/// <summary>
 		/// The encoding to use for the packet.
 		/// </summary>
-#if DOTNET5_5
+#if DOTNET5_4
 		private Encoding m_encoding = Encoding.Unicode;
 #else
 		private Encoding m_encoding = Encoding.Default;

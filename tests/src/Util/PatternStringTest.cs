@@ -28,8 +28,8 @@ namespace log4net.Tests.Util
     [TestFixture]
     public class PatternStringTest
     {
-#if DOTNET5_5
-        [Test, Ignore("Environment.SpecialFolder is unavailable on DOTNET5_5")]
+#if DOTNET5_4
+        [Test, Ignore("Environment.SpecialFolder is unavailable on DOTNET5_4")]
 #else
         [Test]
 #endif

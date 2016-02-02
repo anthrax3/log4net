@@ -18,7 +18,7 @@
 #endregion
 
 // .NET Compact Framework 1.0 has no support for System.Runtime.Remoting
-#if !(NETCF || DOTNET5_5)
+#if !(NETCF || DOTNET5_4)
 
 using System;
 using System.Collections;

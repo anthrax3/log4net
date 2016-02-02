@@ -55,8 +55,8 @@ namespace log4net.Tests.Appender
                 categoryTraceListener.Category);
         }
 
-#if DOTNET5_5
-        [Test, Ignore("LocationInfo can't get method names on DOTNET5_5 due to unavailable stack frame APIs")]
+#if DOTNET5_4
+        [Test, Ignore("LocationInfo can't get method names on DOTNET5_4 due to unavailable stack frame APIs")]
 #else
         [Test]
 #endif

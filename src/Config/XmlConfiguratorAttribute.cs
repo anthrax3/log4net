@@ -79,7 +79,7 @@ namespace log4net.Config
 	/// <author>Nicko Cadell</author>
 	/// <author>Gert Driesen</author>
 	[AttributeUsage(AttributeTargets.Assembly)]
-#if !DOTNET5_5
+#if !DOTNET5_4
 	[Serializable]
 #endif
 	public /*sealed*/ class XmlConfiguratorAttribute : ConfiguratorAttribute

@@ -1,4 +1,4 @@
-﻿#if DOTNET5_5
+﻿#if DOTNET5_4
 namespace System.Reflection
 {
     /// <summary>

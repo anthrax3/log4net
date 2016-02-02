@@ -32,7 +32,7 @@ using System.Runtime.CompilerServices;
 //
 [assembly: System.CLSCompliant(true)]
 
-#if (!(NETCF || DOTNET5_5))
+#if (!(NETCF || DOTNET5_4))
 //
 // If log4net is strongly named it still allows partially trusted callers
 //
@@ -91,7 +91,7 @@ using System.Runtime.CompilerServices;
 [assembly: AssemblyTitle("Apache log4net for CLI Compatible Frameworks")]
 #elif (NET)
 [assembly: AssemblyTitle("Apache log4net for .NET Framework")]
-#elif (DOTNET5_5)
+#elif (DOTNET5_4)
 [assembly: AssemblyTitle("Apache log4net for .NET Core")]
 #elif (NETCF)
 [assembly: AssemblyTitle("Apache log4net for .NET Compact Framework")]

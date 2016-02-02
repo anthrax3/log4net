@@ -94,7 +94,7 @@ namespace log4net.Config
 #endif
         static public ICollection Configure()
         {
-#if DOTNET5_5
+#if DOTNET5_4
             return Configure(LogManager.GetRepository(CallingAssemblyWorkaround.GetCallingAssembly()));
 #else
             return Configure(LogManager.GetRepository(Assembly.GetCallingAssembly()));
@@ -166,7 +166,7 @@ namespace log4net.Config
 				LogLog.Debug(declaringType, "Application config file location unknown");
 			}
 
-#if NETCF || DOTNET5_5
+#if NETCF || DOTNET5_4
 			// No config file reading stuff. Just go straight for the file
 			Configure(repository, new FileInfo(SystemInfo.ConfigurationFileLocation));
 #else
@@ -220,7 +220,7 @@ namespace log4net.Config
 		{
             ArrayList configurationMessages = new ArrayList();
 
-#if DOTNET5_5
+#if DOTNET5_4
             ILoggerRepository repository = LogManager.GetRepository(CallingAssemblyWorkaround.GetCallingAssembly());
 #else
             ILoggerRepository repository = LogManager.GetRepository(Assembly.GetCallingAssembly());
@@ -355,7 +355,7 @@ namespace log4net.Config
 
             using (new LogLog.LogReceivedAdapter(configurationMessages))
             {
-#if DOTNET5_5
+#if DOTNET5_4
                 InternalConfigure(LogManager.GetRepository(CallingAssemblyWorkaround.GetCallingAssembly()), configFile);
 #else
                 InternalConfigure(LogManager.GetRepository(Assembly.GetCallingAssembly()), configFile);
@@ -383,7 +383,7 @@ namespace log4net.Config
 		{
             ArrayList configurationMessages = new ArrayList();
 
-#if DOTNET5_5
+#if DOTNET5_4
             ILoggerRepository repository = LogManager.GetRepository(CallingAssemblyWorkaround.GetCallingAssembly());
 #else
             ILoggerRepository repository = LogManager.GetRepository(Assembly.GetCallingAssembly());
@@ -416,7 +416,7 @@ namespace log4net.Config
 		{
             ArrayList configurationMessages = new ArrayList();
 
-#if DOTNET5_5
+#if DOTNET5_4
             ILoggerRepository repository = LogManager.GetRepository(CallingAssemblyWorkaround.GetCallingAssembly());
 #else
             ILoggerRepository repository = LogManager.GetRepository(Assembly.GetCallingAssembly());
@@ -585,7 +585,7 @@ namespace log4net.Config
 						finally
 						{
 							// Force the file closed whatever happens
-#if DOTNET5_5
+#if DOTNET5_4
 							fs.Dispose();
 #else
 							fs.Close();
@@ -674,7 +674,7 @@ namespace log4net.Config
 #endif
 						try
 						{
-#if DOTNET5_5
+#if DOTNET5_4
 							WebResponse response = configRequest.GetResponseAsync().Result;
 #else
 							WebResponse response = configRequest.GetResponse();
@@ -691,7 +691,7 @@ namespace log4net.Config
 								}
 								finally
 								{
-#if DOTNET5_5
+#if DOTNET5_4
 									response.Dispose();
 #else
 									response.Close();
@@ -755,12 +755,12 @@ namespace log4net.Config
 #if (NETCF)
 					// Create a text reader for the file stream
 					XmlTextReader xmlReader = new XmlTextReader(configStream);
-#elif NET_2_0 || DOTNET5_5
+#elif NET_2_0 || DOTNET5_4
 					// Allow the DTD to specify entity includes
 					XmlReaderSettings settings = new XmlReaderSettings();
                                         // .NET 4.0 warning CS0618: 'System.Xml.XmlReaderSettings.ProhibitDtd'
                                         // is obsolete: 'Use XmlReaderSettings.DtdProcessing property instead.'
-#if DOTNET5_5 // TODO DtdProcessing.Parse not yet available
+#if DOTNET5_4 // TODO DtdProcessing.Parse not yet available
 					settings.DtdProcessing = DtdProcessing.Ignore;
 #elif !NET_4_0 && !MONO_4_0
 					settings.ProhibitDtd = false;
@@ -844,7 +844,7 @@ namespace log4net.Config
 		{
             ArrayList configurationMessages = new ArrayList();
 
-#if DOTNET5_5
+#if DOTNET5_4
             ILoggerRepository repository = LogManager.GetRepository(CallingAssemblyWorkaround.GetCallingAssembly());
 #else
             ILoggerRepository repository = LogManager.GetRepository(Assembly.GetCallingAssembly());
@@ -998,7 +998,7 @@ namespace log4net.Config
 			/// Initializes a new instance of the <see cref="ConfigureAndWatchHandler" /> class.
 			/// </para>
 			/// </remarks>
-#if NET_4_0 || MONO_4_0 || DOTNET5_5
+#if NET_4_0 || MONO_4_0 || DOTNET5_4
             [System.Security.SecuritySafeCritical]
 #endif
             public ConfigureAndWatchHandler(ILoggerRepository repository, FileInfo configFile)
@@ -1078,7 +1078,7 @@ namespace log4net.Config
             /// <summary>
             /// Release the handles held by the watcher and timer.
             /// </summary>
-#if NET_4_0 || MONO_4_0 || DOTNET5_5
+#if NET_4_0 || MONO_4_0 || DOTNET5_4
             [System.Security.SecuritySafeCritical]
 #endif
             public void Dispose()

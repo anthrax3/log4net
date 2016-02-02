@@ -99,8 +99,8 @@ namespace log4net.Tests.Layout
 			stringAppender.Reset();
 		}
 
-#if DOTNET5_5
-        [Test, Ignore("System.Diagnostics.StackTrace isn't fully implemented on DOTNET5_5")]
+#if DOTNET5_4
+        [Test, Ignore("System.Diagnostics.StackTrace isn't fully implemented on DOTNET5_4")]
 #else
         [Test]
 #endif

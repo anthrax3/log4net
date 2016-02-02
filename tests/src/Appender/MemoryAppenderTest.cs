@@ -19,7 +19,7 @@
  *
 */
 
-#if NET_4_0 || MONO_3_5 || MONO_4_0 || DOTNET5_5
+#if NET_4_0 || MONO_3_5 || MONO_4_0 || DOTNET5_4
 
 using System;
 using System.Linq;

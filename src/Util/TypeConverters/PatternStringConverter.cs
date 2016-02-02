@@ -18,7 +18,7 @@
 #endregion
 
 using System;
-#if DOTNET5_5
+#if DOTNET5_4
 using System.Reflection;
 #endif
 using System.Text;

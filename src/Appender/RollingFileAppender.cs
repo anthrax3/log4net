@@ -243,7 +243,7 @@ namespace log4net.Appender
 		{
 			if (m_mutexForRolling != null)
 			{
-#if DOTNET5_5
+#if DOTNET5_4
 				m_mutexForRolling.Dispose();
 #else
 				m_mutexForRolling.Close();
@@ -1037,7 +1037,7 @@ namespace log4net.Appender
 		{
 			if (null != arrayFiles)
 			{
-#if DOTNET5_5
+#if DOTNET5_4
 				string baseFileLower = CultureInfo.InvariantCulture.TextInfo.ToLower(baseFile);
 
 				foreach(string curFileName in arrayFiles)
@@ -1693,7 +1693,7 @@ namespace log4net.Appender
 		/// <summary>
 		/// A mutex that is used to lock rolling of files.
 		/// </summary>
-		private Mutex m_mutexForRolling; // DOTNET5_5 TODO: this doesn't enable interprocess synchronization
+		private Mutex m_mutexForRolling; // DOTNET5_4 TODO: this doesn't enable interprocess synchronization
                                          // https://github.com/dotnet/corefx/commit/e5c17e563423905c59e028b927027ae99e818b5e
   
 		#endregion Private Instance Fields

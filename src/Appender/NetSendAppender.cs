@@ -304,10 +304,10 @@ namespace log4net.Appender
 		/// Sends the event using a network message.
 		/// </para>
 		/// </remarks>
-#if NET_4_0 || MONO_4_0 || DOTNET5_5
+#if NET_4_0 || MONO_4_0 || DOTNET5_4
         [System.Security.SecuritySafeCritical]
 #endif
-#if !DOTNET5_5
+#if !DOTNET5_4
         [System.Security.Permissions.SecurityPermission(System.Security.Permissions.SecurityAction.Demand, UnmanagedCode = true)]
 #endif
         protected override void Append(LoggingEvent loggingEvent) 

@@ -19,7 +19,7 @@
 
 using System;
 using System.Collections;
-#if !DOTNET5_5
+#if !DOTNET5_4
 using System.Configuration;
 #endif
 using System.Diagnostics;

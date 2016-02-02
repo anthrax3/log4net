@@ -145,7 +145,7 @@ namespace log4net.Appender
 
 			private Stream m_realStream = null;
 			private LockingModelBase m_lockingModel = null;
-#if !DOTNET5_5 // only used in unavailable Stream overrides
+#if !DOTNET5_4 // only used in unavailable Stream overrides
 			private int m_readTotal = -1;
 #endif
 			private int m_lockLevel = 0;
@@ -162,7 +162,7 @@ namespace log4net.Appender
 
 			#region Override Implementation of Stream
 
-#if DOTNET5_5
+#if DOTNET5_4
 			protected override void Dispose(bool disposing)
 			{
 				m_lockingModel.CloseFile();
@@ -230,7 +230,7 @@ namespace log4net.Appender
 			}
 			void IDisposable.Dispose()
 			{
-#if DOTNET5_5
+#if DOTNET5_4
 				Dispose(true);
 #else
 				Close();
@@ -485,7 +485,7 @@ namespace log4net.Appender
 			{
 				using (CurrentAppender.SecurityContext.Impersonate(this))
 				{
-#if DOTNET5_5
+#if DOTNET5_4
 					stream.Dispose();
 #else
 					stream.Close();
@@ -709,7 +709,7 @@ namespace log4net.Appender
 		/// <author>Steve Wranovsky</author>
 		public class InterProcessLock : LockingModelBase
 		{
-			// DOTNET5_5 TODO: this doesn't enable interprocess synchronization
+			// DOTNET5_4 TODO: this doesn't enable interprocess synchronization
 			// https://github.com/dotnet/corefx/commit/e5c17e563423905c59e028b927027ae99e818b5e
 			private Mutex m_mutex = null;
 			private Stream m_stream = null;
@@ -729,7 +729,7 @@ namespace log4net.Appender
 			/// -<see cref="ReleaseLock"/> and <see cref="CloseFile"/>.
 			/// </para>
 			/// </remarks>
-#if NET_4_0 || MONO_4_0 || DOTNET5_5
+#if NET_4_0 || MONO_4_0 || DOTNET5_4
 			[System.Security.SecuritySafeCritical]
 #endif
 			public override void OpenFile(string filename, bool append, Encoding encoding)
@@ -850,7 +850,7 @@ namespace log4net.Appender
 			{
 				if (m_mutex != null)
 				{
-#if !DOTNET5_5
+#if !DOTNET5_4
 					m_mutex.Close();
 #else
 					m_mutex.Dispose();
@@ -1456,7 +1456,7 @@ namespace log4net.Appender
 		/// <summary>
 		/// The encoding to use for the file stream.
 		/// </summary>
-#if DOTNET5_5
+#if DOTNET5_4
 		private Encoding m_encoding = Encoding.Unicode;
 #else
 		private Encoding m_encoding = Encoding.Default;

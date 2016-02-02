@@ -139,7 +139,7 @@ namespace log4net.Tests.Core
 			Assert.AreEqual("System.Exception: This is the exception", loggingEvent.GetExceptionString(), "Exception is incorrect");
 			Assert.AreEqual(null, loggingEventData.Identity, "Identity is incorrect");
 			Assert.AreEqual(Level.Warn, loggingEventData.Level, "Level is incorrect");
-#if !DOTNET5_5 // DOTNET5_5: LocationInfo can't get method names
+#if !DOTNET5_4 // DOTNET5_4: LocationInfo can't get method names
 			Assert.AreEqual("get_LocationInformation", loggingEvent.LocationInformation.MethodName, "Location Info is incorrect");
 #endif
 			Assert.AreEqual("log4net.Tests.Core.FixingTest", loggingEventData.LoggerName, "LoggerName is incorrect");

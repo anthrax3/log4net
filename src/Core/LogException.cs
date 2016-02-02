@@ -18,7 +18,7 @@
 #endregion
 
 using System;
-#if !(NETCF || DOTNET5_5)
+#if !(NETCF || DOTNET5_4)
 using System.Runtime.Serialization;
 #endif
 
@@ -36,10 +36,10 @@ namespace log4net.Core
 	/// </remarks>
 	/// <author>Nicko Cadell</author>
 	/// <author>Gert Driesen</author>
-#if !(NETCF || DOTNET5_5)
+#if !(NETCF || DOTNET5_4)
 	[Serializable]
 #endif
-#if DOTNET5_5
+#if DOTNET5_4
 	public class LogException : Exception
 #else
 	public class LogException : ApplicationException 
@@ -92,7 +92,7 @@ namespace log4net.Core
 
 		#region Protected Instance Constructors
 
-#if !(NETCF || DOTNET5_5)
+#if !(NETCF || DOTNET5_4)
 		/// <summary>
 		/// Serialization constructor
 		/// </summary>

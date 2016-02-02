@@ -409,7 +409,7 @@ namespace log4net.Appender
                     // Grab as a byte array
                     buffer = this.Encoding.GetBytes(builder.ToString());
 
-#if DOTNET5_5
+#if DOTNET5_4
                     Client.SendAsync(buffer, buffer.Length, RemoteEndPoint).Wait();
 #else
                     this.Client.Send(buffer, buffer.Length, this.RemoteEndPoint);

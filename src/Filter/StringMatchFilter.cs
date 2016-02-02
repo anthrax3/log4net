@@ -95,7 +95,7 @@ namespace log4net.Filter
 		{
 			if (m_stringRegexToMatch != null)
 			{
-#if DOTNET5_5
+#if DOTNET5_4
 				m_regexToMatch = new Regex(m_stringRegexToMatch);
 #else
 				m_regexToMatch = new Regex(m_stringRegexToMatch, RegexOptions.Compiled);

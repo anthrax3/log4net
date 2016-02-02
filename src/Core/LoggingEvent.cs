@@ -20,7 +20,7 @@
 using System;
 using System.Collections;
 using System.IO;
-#if !(NETCF || DOTNET5_5)
+#if !(NETCF || DOTNET5_4)
 using System.Runtime.Serialization;
 using System.Security.Principal;
 #endif
@@ -287,11 +287,11 @@ namespace log4net.Core
 	/// <author>Gert Driesen</author>
 	/// <author>Douglas de la Torre</author>
 	/// <author>Daniel Cazzulino</author>
-#if !(NETCF || DOTNET5_5)
+#if !(NETCF || DOTNET5_4)
 	[Serializable]
 #endif
 	public class LoggingEvent 
-#if !(NETCF || DOTNET5_5)
+#if !(NETCF || DOTNET5_4)
 		: ISerializable
 #endif
 	{
@@ -426,7 +426,7 @@ namespace log4net.Core
 
 		#region Protected Instance Constructors
 
-#if !(NETCF || DOTNET5_5)
+#if !(NETCF || DOTNET5_4)
 
 		/// <summary>
 		/// Serialization constructor
@@ -745,7 +745,7 @@ namespace log4net.Core
 			{
 				if (m_data.ThreadName == null && this.m_cacheUpdatable)
 				{
-#if NETCF || DOTNET5_5
+#if NETCF || DOTNET5_4
 					// Get thread ID only
 					m_data.ThreadName = SystemInfo.CurrentThreadId.ToString(System.Globalization.NumberFormatInfo.InvariantInfo);
 #else
@@ -828,7 +828,7 @@ namespace log4net.Core
 			{
 				if (m_data.UserName == null  && this.m_cacheUpdatable) 
 				{
-#if (NETCF || SSCLI || DOTNET5_5)
+#if (NETCF || SSCLI || DOTNET5_4)
 					// On compact framework there's no notion of current Windows user
 					m_data.UserName = SystemInfo.NotAvailableText;
 #else
@@ -876,7 +876,7 @@ namespace log4net.Core
 			{
 				if (m_data.Identity == null  && this.m_cacheUpdatable)
 				{
-#if (NETCF || SSCLI || DOTNET5_5)
+#if (NETCF || SSCLI || DOTNET5_4)
 					// On compact framework there's no notion of current thread principals
 					m_data.Identity = SystemInfo.NotAvailableText;
 #else
@@ -1005,7 +1005,7 @@ namespace log4net.Core
 
 		#region Implementation of ISerializable
 
-#if !(NETCF || DOTNET5_5)
+#if !(NETCF || DOTNET5_4)
 
 		/// <summary>
 		/// Serializes this object into the <see cref="SerializationInfo" /> provided.
@@ -1320,7 +1320,7 @@ namespace log4net.Core
 			{
 				m_compositeProperties.Add(m_eventProperties);
 			}
-#if !(NETCF || DOTNET5_5)
+#if !(NETCF || DOTNET5_4)
 			PropertiesDictionary logicalThreadProperties = LogicalThreadContext.Properties.GetProperties(false);
 			if (logicalThreadProperties != null)
 			{

@@ -21,7 +21,7 @@
   "frameworks": {
     "dotnet5.4": {
       "compilationOptions": {
-        "define": [ "DOTNET5_5" ]
+        "define": [ "DOTNET5_4" ]
       },
       "dependencies": {
         "System.AppContext": "4.0.1-rc2-*",
