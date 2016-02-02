@@ -5,8 +5,19 @@
   "tags": [ "" ],
   "projectUrl": "",
   "licenseUrl": "",
-  "compile": [ "../**/*.cs" ],
-  "compileExclude": [ "../bin/*", "../obj/*" ],
+  "compile": [
+    "../*.cs",
+    "../Appender/**/*.cs",
+    "../Config/**/*.cs",
+    "../Core/**/*.cs",
+    "../DateFormatter/**/*.cs",
+    "../Filter/**/*.cs",
+    "../Layout/**/*.cs",
+    "../ObjectRenderer/**/*.cs",
+    "../Plugin/**/*.cs",
+    "../Repository/**/*.cs",
+    "../Util/**/*.cs"
+  ],
   "frameworks": {
     "dotnet5.4": {
       "compilationOptions": {
