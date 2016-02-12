@@ -1462,7 +1462,11 @@ namespace log4net.Tests.Appender
 
 		private static void AssertFileEquals(string filename, string contents)
 		{
+#if DOTNET5_4
+			StreamReader sr = new StreamReader(new FileStream(filename, FileMode.Open));
+#else
 			StreamReader sr = new StreamReader(filename);
+#endif
 			string logcont = sr.ReadToEnd();
 			sr.Close();
 
