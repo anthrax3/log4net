@@ -45,6 +45,7 @@ namespace log4net.Tests.Hierarchy
 	    }
 	}
 
+#if !DOTNET5_4 // TODO write replacement test
 	[Test][Platform(Include="Win")]
 	public void EnvironmentOnWindowsIsCaseInsensitive()
 	{
@@ -58,6 +59,7 @@ namespace log4net.Tests.Hierarchy
 	    SetTestPropWithPath();	    
 	    Assert.AreEqual("Path=", TestProp);
 	}
+#endif
 
 	private void SetTestPropWithPath()
 	{
