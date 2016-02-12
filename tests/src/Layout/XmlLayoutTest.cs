@@ -349,8 +349,13 @@ namespace log4net.Tests.Layout
             bar(42);
 
             var log = stringAppender.GetString();
+#if DOTNET5_4
+            var startOfExceptionText = log.IndexOf("<exception>", StringComparison.Ordinal) + 11;
+            var endOfExceptionText = log.IndexOf("</exception>", StringComparison.Ordinal);
+#else
             var startOfExceptionText = log.IndexOf("<exception>", StringComparison.InvariantCulture) + 11;
             var endOfExceptionText = log.IndexOf("</exception>", StringComparison.InvariantCulture);
+#endif
             var sub = log.Substring(startOfExceptionText, endOfExceptionText - startOfExceptionText);
             if (sub.StartsWith("<![CDATA["))
             {
