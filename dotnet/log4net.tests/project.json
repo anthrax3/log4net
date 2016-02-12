@@ -6,16 +6,16 @@
   "projectUrl": "",
   "licenseUrl": "",
   "compile": [
-    "../*.cs",
-    "../Appender/**/*.cs",
-    "../Context/**/*.cs",
-    "../Core/**/*.cs",
-    "../DateFormatter/**/*.cs",
-    "../Filter/**/*.cs",
-    "../Hierarchy/**/*.cs",
-    "../Layout/**/*.cs",
-    "../LoggerRepository/**/*.cs",
-    "../Util/**/*.cs"
+    "../../tests/src/*.cs",
+    "../../tests/src/Appender/**/*.cs",
+    "../../tests/src/Context/**/*.cs",
+    "../../tests/src/Core/**/*.cs",
+    "../../tests/src/DateFormatter/**/*.cs",
+    "../../tests/src/Filter/**/*.cs",
+    "../../tests/src/Hierarchy/**/*.cs",
+    "../../tests/src/Layout/**/*.cs",
+    "../../tests/src/LoggerRepository/**/*.cs",
+    "../../tests/src/Util/**/*.cs"
   ],
   "compilationOptions": {
     "define": [ "DOTNET5_4" ]
