@@ -8,7 +8,7 @@
     /// will never be available because it's inherently unreliable
     /// (https://github.com/dotnet/corefx/issues/2221).
     /// </summary>
-    public static class CallingAssemblyWorkaround
+    internal static class CallingAssemblyWorkaround
     {
         public static Assembly GetCallingAssembly()
         {
