@@ -1,3 +1,4 @@
+#if !DOTNET5_4
 #region Apache License
 //
 // Licensed to the Apache Software Foundation (ASF) under one or more 
@@ -431,3 +432,4 @@ namespace log4net.Tests.Appender.Remoting.Data
 		}
 	}
 }
+#endif // DOTNET5_4

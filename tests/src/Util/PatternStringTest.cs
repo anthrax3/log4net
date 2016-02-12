@@ -1,3 +1,4 @@
+#if !DOTNET5_4
 /*
  *
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -28,11 +29,7 @@ namespace log4net.Tests.Util
     [TestFixture]
     public class PatternStringTest
     {
-#if DOTNET5_4
-        [Test, Ignore("Environment.SpecialFolder is unavailable on DOTNET5_4")]
-#else
         [Test]
-#endif
         public void TestEnvironmentFolderPathPatternConverter()
         {
             string[] specialFolderNames = Enum.GetNames(typeof(Environment.SpecialFolder));
@@ -53,3 +50,4 @@ namespace log4net.Tests.Util
         }
     }
 }
+#endif

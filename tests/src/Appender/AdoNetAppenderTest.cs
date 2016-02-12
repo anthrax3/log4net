@@ -1,3 +1,4 @@
+#if !DOTNET5_4
 /*
  *
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -81,7 +82,7 @@ namespace log4net.Tests.Appender
         public void WebsiteExample()
         {
             XmlDocument log4netConfig = new XmlDocument();
-            #region Load log4netConfig
+#region Load log4netConfig
             log4netConfig.LoadXml(@"
                 <log4net>
                 <appender name=""AdoNetAppender"" type=""log4net.Appender.AdoNetAppender"">
@@ -138,7 +139,7 @@ namespace log4net.Tests.Appender
                     <appender-ref ref=""AdoNetAppender"" />
                   </root>  
                 </log4net>");
-            #endregion
+#endregion
 
             ILoggerRepository rep = LogManager.CreateRepository(Guid.NewGuid().ToString());
             XmlConfigurator.Configure(rep, log4netConfig["log4net"]);
@@ -170,7 +171,7 @@ namespace log4net.Tests.Appender
         public void BufferingWebsiteExample()
         {
             XmlDocument log4netConfig = new XmlDocument();
-            #region Load log4netConfig
+#region Load log4netConfig
             log4netConfig.LoadXml(@"
                 <log4net>
                 <appender name=""AdoNetAppender"" type=""log4net.Appender.AdoNetAppender"">
@@ -227,7 +228,7 @@ namespace log4net.Tests.Appender
                     <appender-ref ref=""AdoNetAppender"" />
                   </root>  
                 </log4net>");
-            #endregion
+#endregion
 
             ILoggerRepository rep = LogManager.CreateRepository(Guid.NewGuid().ToString());
             XmlConfigurator.Configure(rep, log4netConfig["log4net"]);
@@ -263,7 +264,7 @@ namespace log4net.Tests.Appender
         public void NullPropertyXmlConfig()
         {
             XmlDocument log4netConfig = new XmlDocument();
-            #region Load log4netConfig
+#region Load log4netConfig
             log4netConfig.LoadXml(@"
                 <log4net>
                 <appender name=""AdoNetAppender"" type=""log4net.Appender.AdoNetAppender"">
@@ -285,7 +286,7 @@ namespace log4net.Tests.Appender
                     <appender-ref ref=""AdoNetAppender"" />
                   </root>  
                 </log4net>");
-            #endregion
+#endregion
 
             ILoggerRepository rep = LogManager.CreateRepository(Guid.NewGuid().ToString());
             XmlConfigurator.Configure(rep, log4netConfig["log4net"]);
@@ -328,3 +329,4 @@ namespace log4net.Tests.Appender
         }
     }
 }
+#endif // DOTNET5_4
