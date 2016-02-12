@@ -42,6 +42,7 @@ namespace log4net.Tests.Layout
 	[TestFixture]
 	public class PatternLayoutTest
 	{
+#if !DOTNET5_4
 		private CultureInfo _currentCulture;
 		private CultureInfo _currentUICulture;
 
@@ -62,6 +63,7 @@ namespace log4net.Tests.Layout
 			System.Threading.Thread.CurrentThread.CurrentCulture = _currentCulture;
 			System.Threading.Thread.CurrentThread.CurrentUICulture = _currentUICulture;
         }
+#endif
 
         protected virtual PatternLayout NewPatternLayout() {
             return new PatternLayout();

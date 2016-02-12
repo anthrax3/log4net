@@ -115,10 +115,12 @@ namespace log4net.Tests.Appender
 			ResetAndDeleteTestFiles();
 			InitializeVariables();
 
+#if !DOTNET5_4
 			// set correct thread culture
 			_currentCulture = System.Threading.Thread.CurrentThread.CurrentCulture;
 			_currentUICulture = System.Threading.Thread.CurrentThread.CurrentUICulture;
 			System.Threading.Thread.CurrentThread.CurrentCulture = System.Threading.Thread.CurrentThread.CurrentUICulture = System.Globalization.CultureInfo.InvariantCulture;
+#endif
 		}
 
 		/// <summary>
@@ -128,10 +130,12 @@ namespace log4net.Tests.Appender
 		public void TearDown()
 		{
 			ResetAndDeleteTestFiles();
-			
+
+#if !DOTNET5_4
 			// restore previous culture
 			System.Threading.Thread.CurrentThread.CurrentCulture = _currentCulture;
 			System.Threading.Thread.CurrentThread.CurrentUICulture = _currentUICulture;
+#endif
 		}
 
 		/// <summary>
