@@ -12,17 +12,17 @@
     <OutputPath Condition="'$(OutputPath)'=='' ">..\src\artifacts\bin\$(MSBuildProjectName)\</OutputPath>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="../*.cs" />
-    <Compile Include="../Appender/**/*.cs" />
-    <Compile Include="../Config/**/*.cs" />
-    <Compile Include="../Core/**/*.cs" />
-    <Compile Include="../DateFormatter/**/*.cs" />
-    <Compile Include="../Filter/**/*.cs" />
-    <Compile Include="../Layout/**/*.cs" />
-    <Compile Include="../ObjectRenderer/**/*.cs" />
-    <Compile Include="../Plugin/**/*.cs" />
-    <Compile Include="../Repository/**/*.cs" />
-    <Compile Include="../Util/**/*.cs" />
+    <Compile Include="../../src/*.cs" />
+    <Compile Include="../../src/Appender/**/*.cs" />
+    <Compile Include="../../src/Config/**/*.cs" />
+    <Compile Include="../../src/Core/**/*.cs" />
+    <Compile Include="../../src/DateFormatter/**/*.cs" />
+    <Compile Include="../../src/Filter/**/*.cs" />
+    <Compile Include="../../src/Layout/**/*.cs" />
+    <Compile Include="../../src/ObjectRenderer/**/*.cs" />
+    <Compile Include="../../src/Plugin/**/*.cs" />
+    <Compile Include="../../src/Repository/**/*.cs" />
+    <Compile Include="../../src/Util/**/*.cs" />
   </ItemGroup>
   <PropertyGroup>
     <SchemaVersion>2.0</SchemaVersion>
