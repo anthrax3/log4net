@@ -1,5 +1,4 @@
-﻿#if DOTNET5_4
-namespace System.Reflection
+﻿namespace System.Reflection
 {
     /// <summary>
     /// Workaround for lack of GetCallingAssembly in CoreFX. This will always return
@@ -17,4 +16,3 @@ namespace System.Reflection
         }
     }
 }
-#endif
