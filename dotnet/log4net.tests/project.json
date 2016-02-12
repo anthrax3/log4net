@@ -18,14 +18,17 @@
     "../../tests/src/Util/**/*.cs"
   ],
   "compilationOptions": {
-    "define": [ "DOTNET5_4" ]
+    "define": [ "DOTNET5_4" ],
+    "emitEntryPoint": true
   },
   "commands": {
-    "test": "xunit.runner.dnx"
+    "test": "log4net.tests"
   },
   "frameworks": {
     "dnxcore50": {
       "dependencies": {
+        "log4net": "1.0.0-*",
+        "NUnitLite": "3.0.1",
         "System.Collections.NonGeneric": "4.0.1-rc2-*",
         "System.Console": "4.0.0-rc2-*",
         "System.Diagnostics.Process": "4.1.0-rc2-*",
@@ -39,9 +42,7 @@
         "System.Reflection": "4.1.0-rc2-*",
         "System.Threading.Thread": "4.0.0-rc2-*",
         "System.Xml.ReaderWriter": "4.0.11-rc2-*",
-        "System.Xml.XmlDocument": "4.0.1-rc2-*",
-        "xunit": "2.1.0",
-        "xunit.runner.dnx": "2.1.0-rc1-build204"
+        "System.Xml.XmlDocument": "4.0.1-rc2-*"
       }
     }
   }
