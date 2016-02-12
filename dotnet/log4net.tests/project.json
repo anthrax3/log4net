@@ -18,7 +18,7 @@
     "../Util/**/*.cs"
   ],
   "compilationOptions": {
-    "define": [ "DOTNET5_5" ]
+    "define": [ "DOTNET5_4" ]
   },
   "commands": {
     "test": "xunit.runner.dnx"
