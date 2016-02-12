@@ -22,7 +22,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>build\bin\netcore\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;DOTNET5_5</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;DOTNET5_4</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
