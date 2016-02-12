@@ -14,7 +14,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="../../tests/src/*.cs" />
-    <Compile Include="../../tests/src/Appender/**/*.cs" />
+    <Compile Include="../../tests/src/Appender/*.cs" />
     <Compile Include="../../tests/src/Context/**/*.cs" />
     <Compile Include="../../tests/src/Core/**/*.cs" />
     <Compile Include="../../tests/src/DateFormatter/**/*.cs" />
