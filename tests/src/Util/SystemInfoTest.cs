@@ -65,7 +65,11 @@ namespace log4net.Tests.Util
 
 		public static string TestAssemblyLocationInfoMethod()
 		{
+#if DOTNET5_4
+			return SystemInfo.AssemblyLocationInfo(CallingAssemblyWorkaround.GetCallingAssembly());
+#else
 			return SystemInfo.AssemblyLocationInfo(Assembly.GetCallingAssembly());
+#endif
 		}
 #endif
 
