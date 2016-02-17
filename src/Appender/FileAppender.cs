@@ -835,7 +835,11 @@ namespace log4net.Appender
 							.Replace(":", "_")
 							.Replace("/", "_");
 
+#if DOTNET5_4
+					m_mutex = new Mutex(false);
+#else
 					m_mutex = new Mutex(false, mutexFriendlyFilename);
+#endif
 				}
 				else
 				{
@@ -865,19 +869,19 @@ namespace log4net.Appender
 		}
 #endif
 
-		#endregion Locking Models
+#endregion Locking Models
 
-		#region Public Instance Constructors
+                    #region Public Instance Constructors
 
-		/// <summary>
-		/// Default constructor
-		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// Default constructor
-		/// </para>
-		/// </remarks>
-		public FileAppender()
+                    /// <summary>
+                    /// Default constructor
+                    /// </summary>
+                    /// <remarks>
+                    /// <para>
+                    /// Default constructor
+                    /// </para>
+                    /// </remarks>
+            public FileAppender()
 		{
 		}
 

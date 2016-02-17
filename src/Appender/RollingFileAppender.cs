@@ -1162,8 +1162,11 @@ namespace log4net.Appender
 			}
 
 			// initialize the mutex that is used to lock rolling
+#if DOTNET5_4
+			m_mutexForRolling = new Mutex(false);
+#else
 			m_mutexForRolling = new Mutex(false, m_baseFileName.Replace("\\", "_").Replace(":", "_").Replace("/", "_"));
-
+#endif
 			if (m_rollDate && File != null && m_scheduledFilename == null)
 			{
                 m_scheduledFilename = CombinePath(File, m_now.ToString(m_datePattern, System.Globalization.DateTimeFormatInfo.InvariantInfo));
