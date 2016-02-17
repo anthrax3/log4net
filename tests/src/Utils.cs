@@ -43,12 +43,20 @@ namespace log4net.Tests
 
 		public static object InvokeMethod(object target, string name, params object[] args)
 		{
+#if DOTNET5_4
+			return target.GetType().GetTypeInfo().GetDeclaredMethod(name).Invoke(target, args);
+#else
 			return target.GetType().GetMethod(name, BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Static | BindingFlags.Instance, null, GetTypesArray(args), null).Invoke(target, args);
+#endif
 		}
 
 		public static object InvokeMethod(Type target, string name, params object[] args)
 		{
+#if DOTNET5_4
+			return target.GetTypeInfo().GetDeclaredMethod(name).Invoke(null, args);
+#else
 			return target.GetMethod(name, BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Static, null, GetTypesArray(args), null).Invoke(null, args);
+#endif
 		}
 
 		public static object GetField(object target, string name)
