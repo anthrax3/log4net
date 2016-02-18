@@ -1481,7 +1481,7 @@ namespace log4net.Tests.Appender
 		[Test]
 		public void TestLogOutput()
 		{
-			String filename = "test.log";
+			String filename = GetTestFilePath();
 			SilentErrorHandler sh = new SilentErrorHandler();
 			ILogger log = CreateLogger(filename, new FileAppender.ExclusiveLock(), sh);
 			log.Log(GetType(), Level.Info, "This is a message", null);
@@ -1498,7 +1498,7 @@ namespace log4net.Tests.Appender
 		[Test]
 		public void TestExclusiveLockFails()
 		{
-			String filename = "test.log";
+			String filename = GetTestFilePath();
 
 			FileStream fs = new FileStream(filename, FileMode.Create, FileAccess.Write, FileShare.None);
 			fs.Write(Encoding.ASCII.GetBytes("Test"), 0, 4);
@@ -1520,7 +1520,7 @@ namespace log4net.Tests.Appender
 		[Test]
 		public void TestExclusiveLockRecovers()
 		{
-			String filename = "test.log";
+			String filename = GetTestFilePath();
 
 			FileStream fs = new FileStream(filename, FileMode.Create, FileAccess.Write, FileShare.None);
 			fs.Write(Encoding.ASCII.GetBytes("Test"), 0, 4);
@@ -1542,7 +1542,7 @@ namespace log4net.Tests.Appender
 		[Test]
 		public void TestExclusiveLockLocks()
 		{
-			String filename = "test.log";
+			String filename = GetTestFilePath();
 			bool locked = false;
 
 			SilentErrorHandler sh = new SilentErrorHandler();
@@ -1582,7 +1582,7 @@ namespace log4net.Tests.Appender
 		[Test]
 		public void TestMinimalLockFails()
 		{
-			String filename = "test.log";
+			String filename = GetTestFilePath();
 
 			FileStream fs = new FileStream(filename, FileMode.Create, FileAccess.Write, FileShare.None);
 			fs.Write(Encoding.ASCII.GetBytes("Test"), 0, 4);
@@ -1604,7 +1604,7 @@ namespace log4net.Tests.Appender
 		[Test]
 		public void TestMinimalLockRecovers()
 		{
-			String filename = "test.log";
+			String filename = GetTestFilePath();
 
 			FileStream fs = new FileStream(filename, FileMode.Create, FileAccess.Write, FileShare.None);
 			fs.Write(Encoding.ASCII.GetBytes("Test"), 0, 4);
@@ -1626,7 +1626,7 @@ namespace log4net.Tests.Appender
 		[Test]
 		public void TestMinimalLockUnlocks()
 		{
-			String filename = "test.log";
+			String filename = GetTestFilePath();
 			bool locked;
 
 			SilentErrorHandler sh = new SilentErrorHandler();
@@ -1652,7 +1652,7 @@ namespace log4net.Tests.Appender
         /// </summary>
         [Test]
         public void TestInterProcessLockFails() {
-            String filename = "test.log";
+            String filename = GetTestFilePath();
 
             FileStream fs = new FileStream(filename, FileMode.Create, FileAccess.Write, FileShare.None);
             fs.Write(Encoding.ASCII.GetBytes("Test"), 0, 4);
@@ -1673,7 +1673,7 @@ namespace log4net.Tests.Appender
         /// </summary>
         [Test]
         public void TestInterProcessLockRecovers() {
-            String filename = "test.log";
+            String filename = GetTestFilePath();
 
             FileStream fs = new FileStream(filename, FileMode.Create, FileAccess.Write, FileShare.None);
             fs.Write(Encoding.ASCII.GetBytes("Test"), 0, 4);
@@ -1694,7 +1694,7 @@ namespace log4net.Tests.Appender
         /// </summary>
         [Test]
         public void TestInterProcessLockUnlocks() {
-            String filename = "test.log";
+            String filename = GetTestFilePath();
             bool locked;
 
             SilentErrorHandler sh = new SilentErrorHandler();
@@ -1720,7 +1720,7 @@ namespace log4net.Tests.Appender
 		[Test]
 		public void TestInterProcessLockRoll()
 		{
-			String filename = "test.log";
+			String filename = GetTestFilePath();
 			bool locked;
 
 			SilentErrorHandler sh = new SilentErrorHandler();
@@ -1743,7 +1743,7 @@ namespace log4net.Tests.Appender
 		[Test]
 		public void TestDefaultLockingModel()
 		{
-			String filename = "test.log";
+			String filename = GetTestFilePath();
 			SilentErrorHandler sh = new SilentErrorHandler();
 			ILogger log = CreateLogger(filename, null, sh);
 
@@ -1981,6 +1981,15 @@ namespace log4net.Tests.Appender
 				default:
 					throw new Exception("Unexpected Environment.NewLine.Length");
 			}
+		}
+
+		private string GetTestFilePath()
+		{
+			string filename = "test.log";
+#if DOTNET5_4
+			filename = Path.Combine(Directory.GetCurrentDirectory(), filename);
+#endif
+			return filename;
 		}
 	}
 
